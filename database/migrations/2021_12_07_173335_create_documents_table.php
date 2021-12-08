@@ -19,6 +19,7 @@ class CreateDocumentsTable extends Migration
             $table->string('subscription_numbers', 150);
             $table->string('signature_responsible', 150);
             $table->string('number_page', 10);
+            $table->string('document_size', 10);
             $table->timestamps();
         });
     }
