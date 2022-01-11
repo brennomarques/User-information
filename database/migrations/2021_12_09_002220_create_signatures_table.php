@@ -13,11 +13,11 @@ class CreateSignaturesTable extends Migration
      */
     public function up()
     {
-        Schema::create('signatures', function (Blueprint $table) {
-            $table->id();
+        Schema::connection('pgsql')->create('signatures', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->integer('q_signature_characters');
             $table->string('default_subscription', 150);
-            $table->integer('subscription usage');
+            $table->integer('subscription_usage');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSignaturesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('signatures');
+        Schema::connection('pgsql')->dropIfExists('signatures');
     }
 }

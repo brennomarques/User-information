@@ -13,9 +13,9 @@ class CreateDocumentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('documents', function (Blueprint $table) {
-            $table->id();
-            $table->string('title', 150);
+        Schema::connection('pgsql')->create('documents', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('title', 255);
             $table->string('subscription_numbers', 150);
             $table->string('signature_responsible', 150);
             $table->string('number_page', 10);
@@ -31,6 +31,6 @@ class CreateDocumentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('documents');
+        Schema::connection('pgsql')->dropIfExists('documents');
     }
 }

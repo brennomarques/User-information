@@ -9,11 +9,11 @@ class SignatureController extends Controller
 {
     function getAll() {
         $signatures = Signature::all();
-        return view("signature", compact("signatures"));
+        return view("document.signature", compact("signatures"));
     }
 
     function search($id) {
         $signature = Signature::find($id);
-        return view("signatureDetails", compact('signature'));
+        return view("document.signatureDetails", compact('signature'));
     }
 }

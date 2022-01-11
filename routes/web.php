@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('dashboard', 'dashboard/dashboard')->name('dashboard');;
+// Route::get('/dashboard', [DashboardController::class, 'generalSearch'])->name('dashboard');
+Route::redirect('/', 'dashboard', 301);
 
 Route::get('/perfil', [UsuarioController::class, 'index'])->name('profile');
 Route::get('/documento', [DocumentController::class, 'index'])->name('document');
